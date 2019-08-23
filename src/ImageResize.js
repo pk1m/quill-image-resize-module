@@ -83,7 +83,8 @@ export default class ImageResize {
     };
 
     handleClick = (evt) => {
-        if (evt.target && evt.target.tagName && evt.target.tagName.toUpperCase() === 'IMG') {
+        const isLoadingImage = evt.target && evt.target.parentElement.className == 'image-uploading'
+        if (evt.target && evt.target.tagName && evt.target.tagName.toUpperCase() === 'IMG' && !isLoadingImage) {
             if (this.img === evt.target) {
                 // we are already focused on this image
                 return;
